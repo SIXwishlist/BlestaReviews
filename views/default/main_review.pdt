@@ -1,0 +1,42 @@
+<!-- Load Module Style -->
+<link href="<?php echo $this->view_dir; ?>css/styles.css" rel="stylesheet" type="text/css" />
+
+<?php
+    echo $this->Html->ifSet($message);
+?>
+
+<div class="col-md-9">
+    <div class="panel panel-default panel-blesta" itemscope itemtype="http://schema.org/NewsArticle">
+        <div class="panel-heading">
+            <h3 class="panel-title" itemprop="headline"><?php echo $title; ?></h3>
+            <span itemprop="datePublished" content="<?php echo $this->Date->cast($this->Html->ifSet($date_added), "Y-m-d"); ?>"></span>
+        </div>
+        <div class="panel-body" itemprop="articleBody">
+            <?php echo $content; ?>
+            <div class="pull-right" style="padding-top: 20px;">
+                <?php
+                    if (!empty($post->date_updated)) {
+                ?>
+                <span class="label label-default"><?php echo $this->_("blesta_cms.date_updated", true); ?>: <?php echo $this->Date->cast($this->Html->ifSet($post->date_updated), "Y-m-d"); ?></span>
+                <?php
+                    }
+                ?>
+                <span class="label label-default"><?php echo $this->_("blesta_cms.date_added", true); ?>: <?php echo $this->Date->cast($this->Html->ifSet($date_added), "Y-m-d"); ?></span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#comments .pagination ajax.a").on("click", function () {
+            var dthis = $(this);
+            var link = dthis.innerHTML;
+            var href = dthis.attr("href");
+            if (IsNumeric(link) === true) {
+            dthis.attr("href") = href;
+            }
+        });
+    });
+</script>

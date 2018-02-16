@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+    "name": "BlestaReviews",
+    "description": "Display customer reviews",
+    "authors": [
+        {
+            "name": "FastTrack IT Solutions Ltd",
+            "url": "http://www.ftis.org.uk"
+        }
+    ]
+}
